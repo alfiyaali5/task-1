@@ -9,162 +9,366 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
 </head>
-<style>
-    body{
+<style media="screen">
+body{
             background: linear-gradient(90deg,black, #0099ff9d 100%);
             font-family: 'Nunito', sans-serif;
             padding-top: 50px;
+            background-image: url('https://wallpapercave.com/wp/wp9444191.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            margin: 0;
         
-    }
-    .container {
+            }
+            .container {
             max-width: 550px;
             margin: auto;
+            padding: 20px;
             background-color: #fff;
-            -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
-            box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
-        }
-    .header-bar {
-        display: flex;
-        justify-content: space-between;
-        color: #fff;
-        padding: 10px;
-        border-radius: 5px 5px 0 0;
-        background: linear-gradient(90deg,red,orange,green,grey 63% 100%);
-    }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6
-    {
-    font-family: 'Raleway', sans-serif;
+            border-radius: 12px;
+            box-shadow: 0 8px 12px rgba(255, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
 }
-    .task-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #fff;
-            border-top: 1px solid #dfe4ea;
-            overflow: hidden;
-        }
-        .task-title {
-            display: flex;
-            padding: 20px;
+
+        .container:hover {
+            box-shadow: 0 8px 16px rgba(255, 0, 0, 0.2);
         }
 
-        .task-title a {
-            text-decoration: none;
-            color: #4b5156;
-            margin-left: 10px;
+        .container h1, .container p {
+            text-shadow: 1px 1px 2px rgba(255, 0, 0, 0.3);
         }
 
-        .task-complete-icon {
-            height: 20px;
-            width: 20px;
-            background-color: rgb(0, 255, 0);
-            border-radius: 50%;
-        }
+        .header-bar {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    background: linear-gradient(90deg, rgb(39, 92, 185), rgb(168, 204, 251), rgb(8, 9, 8), rgb(100, 112, 207) 60%, grey);
+    background-size: 400% 400%;
+    animation: gradientAnimation 5s ease infinite; /* adding 5s animation to the heder */
+    transition: color 0.3s;
+}
 
-        .task-incomplete-icon {
-            height: 20px;
-            width: 20px;
-            background-color: rgb(160, 160, 160);
-            border-radius: 50%;
-        }
+.header-bar:hover {
+    color: #f0f0f0; /* Change text color on hover */
+}
 
-        .delete-link {
-            text-decoration: none;
-            font-weight: 900;
-            color: #6249cf;
-            font-size: 22px;
-            line-height: 0;
-            padding: 20px 20px;
-        }
-        .header-bar a {
-            color: rgb(247, 247, 247);
-            text-decoration: none;
-        }
-        #search-add-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-        }
-        input[type=text],
-        input[type=password],
-        textarea {
-            border: 1px solid #757575;
-            border-radius: 5px;
-            padding: 10px;
-            width: 50%;
-        }
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
 
-        label {
-            padding-top: 10px !important;
-            display: block;
-        }
+.header-bar h1, .header-bar p {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold; /* Make the headings bold */
+    color: #333; /* Set the default color */
+    margin-bottom: 10px; /* Add some bottom margin for spacing */
+    text-transform: uppercase; /* Transform text to uppercase */
+    letter-spacing: 1px; /* Add letter spacing for better readability */
+}
 
-        ::placeholder {
-            font-weight: 300;
-            opacity: 0.5;
-        }
+/* Style individual headings as needed */
+h1 {
+    font-size: 2.5em; /* Adjust font size for h1 */
+}
 
-        .button {
-            background-image: linear-gradient(#42A1EC, #0070C9);
-            border: 1px solid #0077CC;
-            border-radius: 4px;
-            box-sizing: border-box;
-            color: #FFFFFF;
-            cursor: pointer;
-            direction: ltr;
-            display: block;
-            font-family: "SF Pro Text","SF Pro Icons","AOS Icons","Helvetica Neue",Helvetica,Arial,sans-serif;
-            font-size: 14px;
-            font-weight: 400;
-            letter-spacing: -.022em;
-            line-height: 1.47059;
-            min-width: 30px;
-            overflow: visible;
-            padding: 4px 15px;
-            text-align: center;
-            /* vertical-align: baseline; */
-            user-select: none;
-            -webkit-user-select: none;
-            touch-action: manipulation;
-            white-space: nowrap;
-        }
-        .button:disabled {
-        cursor: default;
-        opacity: .3;
-        }
+h2 {
+    font-size: 2em; /* Adjust font size for h2 */
+}
 
-        .button:hover {
-        background-image: linear-gradient(#51A9EE, #147BCD);
-        border-color: #1482D0;
-        text-decoration: none;
-        }
+h3 {
+    font-size: 1.5em; /* Adjust font size for h3 */
+}
 
-        .button:active {
-        background-image: linear-gradient(#3D94D9, #0067B9);
-        border-color: #006DBC;
-        outline: none;
-        }
+/* Add hover effect on headings */
+h1:hover,
+h2:hover,
+h3:hover,
+h4:hover,
+h5:hover,
+h6:hover {
+    color: #555; /* Change text color on hover */
+}
 
-        .button:focus {
-        box-shadow: rgba(131, 192, 253, 0.5) 0 0 0 3px;
-        outline: none;
-        }
-        #add-link {
-            color: #6249cf;
-            text-decoration: none;
-            font-size: 42px;
-            text-shadow: 1px 1px #81413b;
-        }
-        .card-body {
-            padding: 20px;
-            
-        }
+.task-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9f9f9; /* Lighter background color for contrast */
+    border: 1px solid #dfe4ea; /* Add border on all sides for separation */
+    border-radius: 10px; /* Apply border radius for rounded corners */
+    padding: 15px; /* Add padding for spacing */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle box shadow for depth */
+    transition: box-shadow 0.3s ease; /* Smooth transition for box shadow */
+    margin-bottom: 15px; /* Add bottom margin for spacing between tasks */
+    overflow: hidden;
+}
+
+.task-wrapper:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increase box shadow on hover */
+}
+
+/* Add more specific styles as needed */
+
+.task-title {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    font-size: 18px; /* Increase font size for better readability */
+    color: #333; /* Set text color */
+    border-bottom: 1px solid #dfe4ea; /* Add a bottom border for separation */
+    transition: background-color 0.3s ease; /* Smooth transition on background color change */
+}
+
+.task-title:hover {
+    background-color: #f9f9f9; /* Change background color on hover for feedback */
+}
+
+.task-title .icon {
+    margin-right: 10px; /* Add margin to separate icon from text */
+    color: #999; /* Adjust icon color */
+}
+
+.task-title .icon:hover {
+    color: #555; /* Change icon color on hover */
+}
+
+
+.task-title a {
+    text-decoration: none;
+    color: black;
+    margin-left: 10px;
+    transition: color 0.3s ease; /* Smooth transition for text color change */
+}
+
+.task-title a:hover {
+    color: #007bff; /* Change text color on hover for interactive feedback */
+}
+
+
+.task-complete-icon {
+    height: 20px;
+    width: 20px;
+    background-color: rgb(0, 255, 0);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    transition: transform 0.3s ease; /* Add transition for animation */
+}
+
+.task-complete-icon:hover {
+    transform: scale(1.2); /* Add scale animation on hover for interactive effect */
+}
+
+.task-incomplete-icon {
+    height: 20px;
+    width: 20px;
+    background-color: rgb(160, 160, 160);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    transition: transform 0.3s ease; /* Add transition for animation */
+    position: relative;
+    overflow: hidden;
+}
+
+.task-incomplete-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%);
+    animation: shimmer 1.5s infinite linear; /* Add shimmer animation */
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); } /* Start shimmer animation */
+    100% { transform: translateX(100%); } /* End shimmer animation */
+}
+
+.task-incomplete-icon:hover {
+    transform: scale(1.2); /* Add scale animation on hover for interactive effect */
+}
+
+
+.delete-link {
+    text-decoration: none;
+    font-weight: 900;
+    color: #6249cf;
+    font-size: 22px;
+    padding: 10px 20px; /* Reduced padding for better spacing */
+    background-color: rgba(98, 73, 207, 0.1); /* Add a subtle background color */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for background color change */
+}
+
+.delete-link:hover {
+    background-color: rgba(98, 73, 207, 0.2); /* Change background color on hover for interactive feedback */
+}
+
+.header-bar a {
+    color: rgb(247, 247, 247);
+    text-decoration: none;
+    font-weight: bold; /* Increase font weight for better visibility */
+    transition: color 0.3s ease; /* Smooth transition for text color change */
+}
+
+.header-bar a:hover {
+    color: #fff; /* Change text color on hover for interactive feedback */
+}
+
+#search-add-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9; /* Add background color for contrast */
+    border-radius: 10px; /* Apply border radius for rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
+}
+
+input[type=text],
+input[type=password],
+.input{
+    flex: 1; /* Take up remaining space */
+    padding: 8px; /* Adjust padding for input */
+    border: 1px solid #ccc; /* Example border */
+    border-radius: 4px; /* Example border radius */
+}
+textarea {
+    border: 1px solid #ccc; /* Adjust border color for better contrast */
+    border-radius: 5px;
+    padding: 10px;
+    width: 60%; /* Adjust width for better spacing */
+    font-size: 16px; /* Increase font size for better readability */
+    margin-right: 10px; /* Add margin for spacing between elements */
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+textarea:focus {
+    border-color: #4b7cf3; /* Change border color on focus for visual feedback */
+    outline: none; /* Remove default focus outline */
+}
+
+label {
+    padding-top: 10px;
+    display: block;
+    font-weight: bold; /* Increase font weight for better visibility */
+    color: #333; /* Set text color */
+    font-size: 16px; /* Adjust font size for consistency */
+}
+
+
+::placeholder {
+    font-weight: 300; /* Adjust font weight */
+    opacity: 0.5; /* Set opacity for a subtle effect */
+    color: #777; /* Adjust placeholder text color */
+    font-style: italic; /* Add italic style for differentiation */
+    transition: opacity 0.3s ease; /* Add transition for opacity change */
+}
+
+/* Adjust placeholder opacity on focus */
+input[type=text]::placeholder,
+input[type=password]::placeholder,
+textarea::placeholder {
+    opacity: 0.7; /* Increase opacity on focus */
+}
+
+/* Add hover effect on placeholder */
+::placeholder:hover {
+    opacity: 0.7; /* Increase opacity on hover for interactive feedback */
+}
+
+.button {
+    background-image: linear-gradient(#42A1EC, #0070C9);
+    border: 1px solid #0077CC;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: "SF Pro Text","SF Pro Icons","AOS Icons","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -.022em;
+    line-height: 1.47059;
+    min-width: 120px; /* Adjust min-width for better button size */
+    padding: 5px 10px; /* Increase padding for better touch target */
+    text-align: center;
+    text-transform: uppercase; /* Transform text to uppercase */
+    transition: background-image 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Add transition effects */
+    user-select: none;
+    white-space: nowrap;
+    outline: none;
+}
+
+.button:hover {
+    background-image: linear-gradient(#51A9EE, #147BCD);
+    border-color: #1482D0;
+    text-decoration: none;
+}
+
+.button:active {
+    background-image: linear-gradient(#3D94D9, #0067B9);
+    border-color: #006DBC;
+}
+
+.button:focus {
+    box-shadow: 0 0 0 3px rgba(131, 192, 253, 0.5); /* Add focus outline with box-shadow */
+}
+
+#add-link {
+    color: #6249cf;
+    text-decoration: none;
+    font-size: 42px;
+    font-family: "Arial", sans-serif; /* Change font family */
+    text-shadow: 1px 1px 2px #81413b; /* Increase text shadow for depth */
+    transition: transform 0.3s ease; /* Add transition for interactive effect */
+}
+
+
+#add-link:hover {
+    transform: scale(1.1); /* Scale up on hover for interactive effect */
+}
+
+.card-body {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition effects */
+}
+
+.card-body:hover {
+    transform: translateY(-5px); /* Lift the card on hover for a subtle elevation effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase box shadow on hover */
+}
+
+
 </style>
 <body>
     <div class="container">
